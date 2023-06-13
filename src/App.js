@@ -4,7 +4,14 @@ import BeautyContainer from "./containers/BeautyContainer";
 function App() {
   return (
     <div className="App">
-      <BeautyContainer />
+      <div className="container">
+        <main>
+          <BeautyContainer />
+        </main>
+        <footer>
+          <small>Hello from beauty</small>
+        </footer>
+      </div>
     </div>
   );
 }

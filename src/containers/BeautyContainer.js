@@ -1,4 +1,6 @@
 import React from "react";
+import Search from "../components/Search";
+import "./BeautyContainer.css";
 
 const BeautyContainer = () => {
   const getAllBeauty = () => {
@@ -10,7 +12,10 @@ const BeautyContainer = () => {
   return (
     <div>
       <h1>BEAUTY</h1>
-      <button className="btn btn-primary" onClick={getAllBeauty}>start</button>
+      <button className="btn btn-primary" onClick={getAllBeauty}>
+        start
+      </button>
+      <Search />
     </div>
   );
 };

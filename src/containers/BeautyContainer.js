@@ -10,7 +10,7 @@ const BeautyContainer = () => {
   return (
     <div>
       <h1>BEAUTY</h1>
-      <button onClick={getAllBeauty}>start</button>
+      <button className="btn btn-primary" onClick={getAllBeauty}>start</button>
     </div>
   );
 };

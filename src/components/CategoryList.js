@@ -5,7 +5,7 @@ const CategoryList = ({ category, onCategoryClick }) => {
     onCategoryClick(category); // Pass the category as a parameter
   };
 
-  return <li onClick={handleClick}>{category.category}</li>;
+  return <button className="btn btn-primary" onClick={handleClick}>{category.brand}</button>;
 };
 
 export default CategoryList;

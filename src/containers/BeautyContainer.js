@@ -14,20 +14,18 @@ const BeautyContainer = () => {
   const getAllBeauty = () => {
     fetch("http://makeup-api.herokuapp.com/api/v1/products.json")
       .then((res) => res.json())
-      .then((allCategories) => setAllCategories(allCategories)) // Uncomment this line to set fetched data in state
+      .then((allCategories) => setAllCategories(allCategories))
       .catch((error) => console.log(error));
   };
 
   return (
     <div className="BeautyContainerMain">
       <h1>BEAUTY</h1>
-      <div>
-        <AllCategories
-          allCategories={allCategories}
-          onCategoryClick={setSelectedCategory} // Pass the setSelectedCategory function as a prop
-        />
-      </div>
       <Search />
+      <AllCategories
+        allCategories={allCategories}
+        onCategoryClick={setSelectedCategory} // Pass the setSelectedCategory function as a prop
+      />
     </div>
   );
 };

@@ -11,30 +11,25 @@ const BeautyContainer = () => {
     getAllBeauty();
   }, []);
 
-//   const onCategoryClick = (category) => {
-//     setSelectedCategory(category);
-//   };
   const getAllBeauty = () => {
     fetch("http://makeup-api.herokuapp.com/api/v1/products.json")
       .then((res) => res.json())
-      .then((allCategories) => setAllCategories(allCategories))
-      console.log(allCategories);
+      .then((allCategories) => setAllCategories(allCategories)) // Uncomment this line to set fetched data in state
+      .catch((error) => console.log(error));
   };
 
   return (
     <div className="BeautyContainerMain">
       <h1>BEAUTY</h1>
-      {/* <button className="btn btn-primary" onClick={getAllBeauty}>
-        start
-      </button> */}
       <div>
         <AllCategories
           allCategories={allCategories}
-        //   onCategoryClick={onCategoryClick}
+          onCategoryClick={setSelectedCategory} // Pass the setSelectedCategory function as a prop
         />
       </div>
       <Search />
     </div>
   );
 };
+
 export default BeautyContainer;

@@ -5,20 +5,13 @@ import "./BeautyContainer.css";
 
 const BeautyContainer = () => {
   const [allCategories, setAllCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+//   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     getAllBeauty();
   }, []);
 
-//   const getAllBeauty = () => {
-//     fetch("http://makeup-api.herokuapp.com/api/v1/products.json")
-//       .then((res) => res.json())
-//       .then((allCategories) => setAllCategories(allCategories))
-//       .catch((error) => console.log(error));
-//   };
-
-const getAllBeauty = () => {
+  const getAllBeauty = () => {
     fetch("http://makeup-api.herokuapp.com/api/v1/products.json")
       .then((res) => res.json())
       .then((products) => {
@@ -34,7 +27,6 @@ const getAllBeauty = () => {
       })
       .catch((error) => console.log(error));
   };
-  
 
   return (
     <div className="BeautyContainerMain">
@@ -42,7 +34,7 @@ const getAllBeauty = () => {
       <Search />
       <AllCategories
         allCategories={allCategories}
-        onCategoryClick={setSelectedCategory} // Pass the setSelectedCategory function as a prop
+        // onCategoryClick={setSelectedCategory}
       />
     </div>
   );

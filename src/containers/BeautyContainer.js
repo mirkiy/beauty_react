@@ -11,12 +11,30 @@ const BeautyContainer = () => {
     getAllBeauty();
   }, []);
 
-  const getAllBeauty = () => {
+//   const getAllBeauty = () => {
+//     fetch("http://makeup-api.herokuapp.com/api/v1/products.json")
+//       .then((res) => res.json())
+//       .then((allCategories) => setAllCategories(allCategories))
+//       .catch((error) => console.log(error));
+//   };
+
+const getAllBeauty = () => {
     fetch("http://makeup-api.herokuapp.com/api/v1/products.json")
       .then((res) => res.json())
-      .then((allCategories) => setAllCategories(allCategories))
+      .then((products) => {
+        const groupedCategories = {};
+        products.map((product) => {
+          const productType = product.product_type;
+          if (!groupedCategories[productType]) {
+            groupedCategories[productType] = [];
+          }
+          groupedCategories[productType].push(product);
+        });
+        setAllCategories(groupedCategories);
+      })
       .catch((error) => console.log(error));
   };
+  
 
   return (
     <div className="BeautyContainerMain">

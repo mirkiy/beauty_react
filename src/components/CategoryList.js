@@ -1,11 +1,15 @@
 import React from "react";
 
-const CategoryList = ({ category, onCategoryClick }) => {
+const CategoryList = ({ categoryType, onCategoryClick }) => {
   const handleClick = () => {
-    onCategoryClick(category); // Pass the category as a parameter
+    onCategoryClick(categoryType);
   };
 
-  return <button className="btn btn-primary" onClick={handleClick}>{category.brand}</button>;
+  return (
+    <button className="btn btn-primary" onClick={handleClick}>
+      {categoryType}
+    </button>
+  );
 };
 
 export default CategoryList;

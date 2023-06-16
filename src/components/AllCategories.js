@@ -2,13 +2,14 @@ import React from "react";
 import CategoryList from "./CategoryList";
 
 const AllCategories = ({ allCategories, onCategoryClick }) => {
-  const categoryItems = allCategories.map((category, index) => {
+  const categoryItems = Object.keys(allCategories).map((categoryType, index) => {
     return (
-      <CategoryList
-        category={category}
-        key={index}
-        onCategoryClick={onCategoryClick}
-      />
+      <div key={index}>
+        <CategoryList
+          categoryType={categoryType}
+          onCategoryClick={onCategoryClick}
+        />
+      </div>
     );
   });
 

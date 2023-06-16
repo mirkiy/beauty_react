@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import AllCategories from "../components/AllCategories";
 import Search from "../components/Search";
+import ListItem from "../components/ListItem";
 import "./BeautyContainer.css";
 
 const BeautyContainer = () => {
-  const [allCategories, setAllCategories] = useState([]);
-//   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [allCategories, setAllCategories] = useState({});
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     getAllBeauty();
@@ -28,14 +29,19 @@ const BeautyContainer = () => {
       .catch((error) => console.log(error));
   };
 
+  const selectedProducts = selectedCategory ? allCategories[selectedCategory] : [];
+
   return (
     <div className="BeautyContainerMain">
       <h1>BEAUTY</h1>
       <Search />
       <AllCategories
         allCategories={allCategories}
-        // onCategoryClick={setSelectedCategory}
+        onCategoryClick={setSelectedCategory}
       />
+      {selectedProducts.map((product, index) => (
+        <ListItem key={index} product={product} />
+      ))}
     </div>
   );
 };

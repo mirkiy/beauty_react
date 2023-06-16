@@ -1,7 +1,13 @@
 import React from "react";
 
-const ListItem = ({ category }) => {
-  return <li>{category.brand}</li>;
+const ListItem = ({ product }) => {
+  return (
+    <div>
+      <p>{product.name}</p>
+      <p>{product.brand}</p>
+
+    </div>
+  );
 };
 
 export default ListItem;

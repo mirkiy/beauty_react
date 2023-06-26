@@ -1,4 +1,5 @@
 import React from "react";
+import "./CategoryList.css"
 
 const CategoryList = ({ categoryType, onCategoryClick, isSelected }) => {
   const handleClick = () => {
@@ -6,12 +7,14 @@ const CategoryList = ({ categoryType, onCategoryClick, isSelected }) => {
   };
 
   return (
+    <div className="categoryList">
     <button
       className={`btn ${isSelected ? "btn-primary" : "btn-secondary"}`}
       onClick={handleClick}
     >
       {categoryType}
     </button>
+    </div>
   );
 };
 

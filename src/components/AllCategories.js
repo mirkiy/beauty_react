@@ -1,5 +1,6 @@
 import React from "react";
 import CategoryList from "./CategoryList";
+import "./AllCategories.css"
 
 const AllCategories = ({ allCategories, onCategoryClick, selectedCategory }) => {
   const categoryItems = Object.keys(allCategories).map((categoryType, index) => {

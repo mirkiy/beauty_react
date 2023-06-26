@@ -1,12 +1,15 @@
 import React from "react";
 
-const CategoryList = ({ categoryType, onCategoryClick }) => {
+const CategoryList = ({ categoryType, onCategoryClick, isSelected }) => {
   const handleClick = () => {
     onCategoryClick(categoryType);
   };
 
   return (
-    <button className="btn btn-primary" onClick={handleClick}>
+    <button
+      className={`btn ${isSelected ? "btn-primary" : "btn-secondary"}`}
+      onClick={handleClick}
+    >
       {categoryType}
     </button>
   );

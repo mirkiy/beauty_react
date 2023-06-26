@@ -29,6 +29,14 @@ const BeautyContainer = () => {
       .catch((error) => console.log(error));
   };
 
+  const toggleCategory = (categoryType) => {
+    if (selectedCategory === categoryType) {
+      setSelectedCategory(null);
+    } else {
+      setSelectedCategory(categoryType);
+    }
+  };
+
   const selectedProducts = selectedCategory ? allCategories[selectedCategory] : [];
 
   return (
@@ -37,7 +45,8 @@ const BeautyContainer = () => {
       <Search />
       <AllCategories
         allCategories={allCategories}
-        onCategoryClick={setSelectedCategory}
+        onCategoryClick={toggleCategory}
+        selectedCategory={selectedCategory}
       />
       {selectedProducts.map((product, index) => (
         <ListItem key={index} product={product} />

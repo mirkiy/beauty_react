@@ -1,19 +1,19 @@
 import React from "react";
-import "./CategoryList.css"
+import { Link } from "react-router-dom";
+import "./CategoryList.css";
 
-const CategoryList = ({ categoryType, onCategoryClick, isSelected }) => {
+const CategoryList = ({ categoryType, onCategoryClick }) => {
   const handleClick = () => {
     onCategoryClick(categoryType);
   };
 
   return (
     <div className="categoryList">
-    <button
-      className={`btn ${isSelected ? "btn-primary" : "btn-secondary"}`}
-      onClick={handleClick}
-    >
-      {categoryType}
-    </button>
+      <Link to="/product">
+        <button className="btn" onClick={handleClick}>
+          {categoryType}
+        </button>
+      </Link>
     </div>
   );
 };

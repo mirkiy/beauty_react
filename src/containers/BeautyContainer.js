@@ -3,6 +3,8 @@ import AllCategories from "../components/AllCategories";
 import Search from "../components/Search";
 import ListItem from "../components/ListItem";
 import "./BeautyContainer.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 const BeautyContainer = () => {
   const [allCategories, setAllCategories] = useState({});
@@ -37,20 +39,37 @@ const BeautyContainer = () => {
     }
   };
 
-  const selectedProducts = selectedCategory ? allCategories[selectedCategory] : [];
+  const selectedProducts = selectedCategory
+    ? allCategories[selectedCategory]
+    : [];
 
   return (
     <div className="BeautyContainerMain">
       <h1>BEAUTY</h1>
       <Search />
-      <AllCategories
-        allCategories={allCategories}
-        onCategoryClick={toggleCategory}
-        selectedCategory={selectedCategory}
-      />
-      {selectedProducts.map((product, index) => (
-        <ListItem key={index} product={product} />
-      ))}
+
+      <Router>
+      <NavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <AllCategories
+                allCategories={allCategories}
+                onCategoryClick={toggleCategory}
+                selectedCategory={selectedCategory}
+              />
+            }
+          />
+
+          <Route
+            path="/product"
+            element={selectedProducts.map((product, index) => (
+              <ListItem key={index} product={product} />
+            ))}
+          />
+        </Routes>
+      </Router>
     </div>
   );
 };

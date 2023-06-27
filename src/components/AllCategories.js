@@ -1,15 +1,14 @@
 import React from "react";
 import CategoryList from "./CategoryList";
-import "./AllCategories.css"
+import "./AllCategories.css";
 
-const AllCategories = ({ allCategories, onCategoryClick, selectedCategory }) => {
+const AllCategories = ({ allCategories, onCategoryClick }) => {
   const categoryItems = Object.keys(allCategories).map((categoryType, index) => {
     return (
       <div key={index}>
         <CategoryList
           categoryType={categoryType}
           onCategoryClick={onCategoryClick}
-          isSelected={selectedCategory === categoryType}
         />
       </div>
     );

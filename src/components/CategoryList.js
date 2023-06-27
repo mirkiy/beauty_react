@@ -10,7 +10,7 @@ const CategoryList = ({ categoryType, onCategoryClick }) => {
   return (
     <div className="categoryList">
       <Link to="/product">
-        <button className="btn" onClick={handleClick}>
+        <button className="btn btn-outline-success" onClick={handleClick}>
           {categoryType}
         </button>
       </Link>

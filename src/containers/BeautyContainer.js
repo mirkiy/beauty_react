@@ -5,6 +5,7 @@ import ListItem from "../components/ListItem";
 import "./BeautyContainer.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import ErrorPage from "../components/ErrorPage";
 
 const BeautyContainer = () => {
   const [allCategories, setAllCategories] = useState({});
@@ -49,7 +50,7 @@ const BeautyContainer = () => {
       <Search />
 
       <Router>
-      <NavBar />
+        <NavBar />
         <Routes>
           <Route
             path="/"
@@ -68,6 +69,8 @@ const BeautyContainer = () => {
               <ListItem key={index} product={product} />
             ))}
           />
+
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
     </div>

@@ -20,7 +20,7 @@ const BeautyContainer = () => {
       .then((res) => res.json())
       .then((products) => {
         const groupedCategories = {};
-        products.forEach((product) => {
+        products.map((product) => {
           const productType = product.product_type;
           if (!groupedCategories[productType]) {
             groupedCategories[productType] = [];

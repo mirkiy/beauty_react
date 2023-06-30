@@ -3,8 +3,7 @@ import "./ListItem.css";
 
 const ListItem = ({ product }) => {
   return (
-    <div className="row row-cols-1 row-cols-md-2 g-4">
-      <div className="col">
+    <div className="col-md-4">
         <div className="card">
           <img
             src={product.api_featured_image}
@@ -18,7 +17,7 @@ const ListItem = ({ product }) => {
           </div>
         </div>
       </div>
-    </div>
+
   );
 };
 

@@ -58,13 +58,17 @@ const BeautyContainer = () => {
               />
             }
           />
+<Route
+  path="/product"
+  element={
+    <div className="row">
+      {selectedProducts.map((product, index) => (
+        <ListItem key={index} product={product} />
+      ))}
+    </div>
+  }
+/>
 
-          <Route
-            path="/product"
-            element={selectedProducts.map((product, index) => (
-              <ListItem key={index} product={product} />
-            ))}
-          />
 
           <Route path="*" element={<ErrorPage />} />
         </Routes>

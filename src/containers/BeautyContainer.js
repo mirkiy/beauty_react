@@ -6,10 +6,12 @@ import "./BeautyContainer.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import ErrorPage from "../components/ErrorPage";
+import ProductDetails from "../components/ProductDetails";
 
 const BeautyContainer = () => {
   const [allCategories, setAllCategories] = useState({});
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     getAllBeauty();
@@ -40,6 +42,10 @@ const BeautyContainer = () => {
     ? allCategories[selectedCategory]
     : [];
 
+  const selectProduct = (product) => {
+    setSelectedProduct(product);
+  };
+
   return (
     <div className="BeautyContainerMain">
       <h1>BEAUTY</h1>
@@ -67,6 +73,11 @@ const BeautyContainer = () => {
                 ))}
               </div>
             }
+          />
+
+          <Route
+            path="/product/:productId"
+            element={<ProductDetails product={selectedProduct} />}
           />
 
           <Route path="*" element={<ErrorPage />} />

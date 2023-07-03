@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ListItem.css";
 
-const ListItem = ({ product }) => {
+const ListItem = ({ product, onClick }) => {
+  const handleClick = () => {
+    onClick(product);
+  };
+
   return (
     <div className="col-md-4">
       <div className="card">
@@ -11,9 +15,11 @@ const ListItem = ({ product }) => {
           <div className="card-body">
             <h5 className="card-title">{product.name}</h5>
             <h6 className="card-brand">{product.brand}</h6>
-            {/* <p className="card-text">{product.description}</p> */}
           </div>
         </Link>
+        <button className="btn btn-primary" onClick={handleClick}>
+          View Details
+        </button>
       </div>
     </div>
   );

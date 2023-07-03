@@ -69,7 +69,7 @@ const BeautyContainer = () => {
             element={
               <div className="row">
                 {selectedProducts.map((product, index) => (
-                  <ListItem key={index} product={product} />
+                  <ListItem key={index} product={product} onClick={selectProduct} />
                 ))}
               </div>
             }

@@ -13,7 +13,7 @@ const ListItem = ({ product }) => {
           <div className="card-body">
             <h5 className="card-title">{product.name}</h5>
             <h6 className="card-brand">{product.brand}</h6>
-            <p className="card-text">{product.description}</p>
+            {/* <p className="card-text">{product.description}</p> */}
           </div>
         </div>
       </div>

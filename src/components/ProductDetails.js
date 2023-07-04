@@ -8,10 +8,15 @@ const ProductDetails = ({ product }) => {
   return (
     <div>
       <h2>Product Details</h2>
-      <div>
-        <img src={product.api_featured_image} alt={product.name} />
-        <h3>{product.name}</h3>
-        <p>{product.description}</p>
+      <div className="card">
+        <div className="card-body">
+          <img src={product.api_featured_image} 
+          className="col-md-3"
+          alt={product.name} />
+          <h4>{product.name}</h4>
+          <h4>{product.brand}</h4>
+          <p>{product.description}</p>
+        </div>
       </div>
     </div>
   );

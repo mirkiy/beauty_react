@@ -1,18 +1,18 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import ListItem from "./ListItem";
 
 const ProductDetails = ({ product }) => {
-  const { productId } = useParams();
-
-  if (!product || product.id !== productId) {
+  if (!product) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
       <h2>Product Details</h2>
-      <ListItem product={product} />
+      <div>
+        <img src={product.api_featured_image} alt={product.name} />
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+      </div>
     </div>
   );
 };

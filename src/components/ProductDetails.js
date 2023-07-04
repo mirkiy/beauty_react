@@ -1,4 +1,5 @@
 import React from "react";
+import "./ProductDetails.css";
 
 const ProductDetails = ({ product }) => {
   if (!product) {
@@ -21,10 +22,21 @@ const ProductDetails = ({ product }) => {
             <strong>Description: </strong> {product.description}
           </p>
           <ul>
-            {" "}
-            Tags:{" "}
+            <strong>Tags: </strong>
             {product.tag_list.map((productTag, index) => (
               <li key={index}>{productTag}</li>
+            ))}
+          </ul>
+          <ul>
+            <strong>Colours:</strong>
+            {product.product_colors.map((productColor, index) => (
+              <li key={index}>
+                <div
+                  className="color-circle"
+                  style={{ backgroundColor: productColor.hex_value }}
+                ></div>
+                {productColor.colour_name}
+              </li>
             ))}
           </ul>
         </div>

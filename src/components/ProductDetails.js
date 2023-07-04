@@ -17,7 +17,16 @@ const ProductDetails = ({ product }) => {
         <div className="card-body">
           <h4>{product.name}</h4>
           <h4>{product.brand}</h4>
-          <p>{product.description}</p>
+          <p>
+            <strong>Description: </strong> {product.description}
+          </p>
+          <ul>
+            {" "}
+            Tags:{" "}
+            {product.tag_list.map((productTag, index) => (
+              <li key={index}>{productTag}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

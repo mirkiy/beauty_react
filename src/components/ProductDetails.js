@@ -27,20 +27,17 @@ const ProductDetails = ({ product }) => {
               <li key={index}>{productTag}</li>
             ))}
           </ul>
-          <ul>
-            <strong>Colours:</strong>
+          <div className="color-flex-container"> 
             {product.product_colors.map((productColor, index) => (
-              <li key={index}>
+              <div key={index} className="color-flex-item">
                 <div
                   className="color-circle"
                   style={{ backgroundColor: productColor.hex_value }}
                 ></div>
-                <div>
-                {productColor.colour_name}
-                </div>
-              </li>
+                <div>{productColor.colour_name}</div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

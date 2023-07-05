@@ -35,7 +35,9 @@ const ProductDetails = ({ product }) => {
                   className="color-circle"
                   style={{ backgroundColor: productColor.hex_value }}
                 ></div>
+                <div>
                 {productColor.colour_name}
+                </div>
               </li>
             ))}
           </ul>

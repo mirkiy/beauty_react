@@ -12,6 +12,7 @@ const BeautyContainer = () => {
   const [allCategories, setAllCategories] = useState({});
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     getAllBeauty();
@@ -38,18 +39,24 @@ const BeautyContainer = () => {
     setSelectedCategory(categoryType);
   };
 
-  const selectedProducts = selectedCategory
-    ? allCategories[selectedCategory]
-    : [];
-
   const selectProduct = (product) => {
     setSelectedProduct(product);
   };
 
+  const searchProducts = (keyword) => {
+    const filteredProducts = Object.values(allCategories).flat().filter((product) =>
+      product.name.toLowerCase().includes(keyword.toLowerCase())
+    );
+    setSearchResults(filteredProducts);
+    console.log(filteredProducts)
+  };
+
+  const selectedProducts = selectedCategory ? allCategories[selectedCategory] : searchResults;
+
   return (
     <div className="BeautyContainerMain">
       <h1>BEAUTY</h1>
-      <Search />
+      <Search onSearch={searchProducts} />
 
       <Router>
         <NavBar />

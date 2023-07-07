@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 import "./Search.css";
 
-const Search = () => {
-  let [keyword, setKeyword] = useState("");
+const Search = ({ onSearch }) => {
+  const [keyword, setKeyword] = useState("");
 
   const search = (event) => {
     event.preventDefault();
-    alert(`Searching for ${keyword}`);
+    onSearch(keyword);
   };
 
-  const handleKeyWordChange = (event) => {
-        setKeyword(event.target.value)
+  const handleKeywordChange = (event) => {
+    setKeyword(event.target.value);
   };
 
   return (
     <div className="Search">
       <form onSubmit={search}>
-        <input type="search" onChange={handleKeyWordChange} />
+        <input type="search" value={keyword} onChange={handleKeywordChange} />
+        <button type="submit">Search</button>
       </form>
     </div>
   );
 };
+
 export default Search;

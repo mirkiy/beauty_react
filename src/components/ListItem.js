@@ -6,6 +6,7 @@ const ListItem = ({ product, onClick }) => {
   const handleClick = () => {
     onClick(product);
   };
+  console.log(product)
 
   return (
     <div className="col-md-4">

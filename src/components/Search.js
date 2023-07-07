@@ -7,6 +7,7 @@ const Search = ({ onSearch }) => {
   const search = (event) => {
     event.preventDefault();
     onSearch(keyword);
+    console.log(keyword)
   };
 
   const handleKeywordChange = (event) => {

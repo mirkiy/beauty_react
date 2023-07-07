@@ -3,16 +3,13 @@ import CategoryList from "./CategoryList";
 import "./AllCategories.css";
 
 const AllCategories = ({ allCategories, onCategoryClick }) => {
-  const categoryItems = Object.keys(allCategories).map((categoryType, index) => {
-    return (
-      <div key={index}>
-        <CategoryList
-          categoryType={categoryType}
-          onCategoryClick={onCategoryClick}
-        />
-      </div>
-    );
-  });
+  const categoryItems = Object.keys(allCategories).map((categoryType, index) => (
+    <CategoryList
+      key={index}
+      categoryType={categoryType}
+      onCategoryClick={onCategoryClick}
+    />
+  ));
 
   return <div className="allCategories">{categoryItems}</div>;
 };

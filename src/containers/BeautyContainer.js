@@ -44,14 +44,17 @@ const BeautyContainer = () => {
   };
 
   const searchProducts = (keyword) => {
-    const filteredProducts = Object.values(allCategories).flat().filter((product) =>
-      product.name.toLowerCase().includes(keyword.toLowerCase())
-    );
+    const filteredProducts = Object.values(allCategories)
+      .flat()
+      .filter((product) =>
+        product.name.toLowerCase().includes(keyword.toLowerCase())
+      );
     setSearchResults(filteredProducts);
-    console.log(filteredProducts)
   };
 
-  const selectedProducts = selectedCategory ? allCategories[selectedCategory] : searchResults;
+  const selectedProducts = selectedCategory
+    ? allCategories[selectedCategory]
+    : searchResults;
 
   return (
     <div className="BeautyContainerMain">

@@ -21,12 +21,15 @@ const ProductDetails = ({ product }) => {
           <p>
             <strong>Description: </strong> {product.description}
           </p>
-          <ul>
-            <strong>Tags: </strong>
+          <div className="tags-container">
+            <strong>Tags:</strong>
             {product.tag_list.map((productTag, index) => (
-              <li key={index}>{productTag}</li>
+              <React.Fragment key={index}>
+              <div className="tags" > {productTag} </div>
+              {index !== product.tag_list.length - 1 && <span> | </span>}
+              </React.Fragment>
             ))}
-          </ul>
+          </div>
           <div className="color-flex-container"> 
             {product.product_colors.map((productColor, index) => (
               <div key={index} className="color-flex-item">

@@ -25,12 +25,13 @@ const ProductDetails = ({ product }) => {
             <strong>Tags:</strong>
             {product.tag_list.map((productTag, index) => (
               <React.Fragment key={index}>
-              <div className="tags" > {productTag} </div>
-              {index !== product.tag_list.length - 1 && <span> | </span>}
+                <div className="tags"> {productTag} </div>
+                {index !== product.tag_list.length - 1 && <span> | </span>}
               </React.Fragment>
             ))}
           </div>
-          <div className="color-flex-container"> 
+          <div className="color-flex-container">
+            <strong>Colours: </strong>
             {product.product_colors.map((productColor, index) => (
               <div key={index} className="color-flex-item">
                 <div

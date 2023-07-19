@@ -13,6 +13,7 @@ const BeautyContainer = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
 
   useEffect(() => {
     getAllBeauty();
@@ -31,6 +32,7 @@ const BeautyContainer = () => {
           groupedCategories[productType].push(product);
         });
         setAllCategories(groupedCategories);
+        setIsDataLoaded(true); // Set the flag to indicate data loading is complete
       })
       .catch((error) => console.log(error));
   };
@@ -59,11 +61,12 @@ const BeautyContainer = () => {
   return (
     <div className="BeautyContainerMain">
       <h1>BEAUTY</h1>
-      <Search onSearch={searchProducts} />
-
-      <Router>
-        <NavBar />
-        <Routes>
+      {isDataLoaded ? ( // Render the components only if data is loaded
+        <>
+          <Search onSearch={searchProducts} />
+          <Router>
+            <NavBar />
+            <Routes>
           <Route
             path="/"
             element={
@@ -93,10 +96,13 @@ const BeautyContainer = () => {
             element={<ProductDetails product={selectedProduct} />}
           />
           <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </Router>
+          </Routes>
+          </Router>
+        </>
+      ) : (
+        <div>Loading...</div> // Show a loading message while data is being fetched
+      )}
     </div>
   );
 };
-
 export default BeautyContainer;

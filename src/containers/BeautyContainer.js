@@ -31,7 +31,9 @@ const BeautyContainer = () => {
           }
           groupedCategories[productType].push(product);
         });
+        console.log("Grouped Categories:", groupedCategories);
         setAllCategories(groupedCategories);
+        console.log("All Categories:", allCategories); // Log the state after setting
         setIsDataLoaded(true); // Set the flag to indicate data loading is complete
       })
       .catch((error) => console.log(error));
@@ -46,57 +48,70 @@ const BeautyContainer = () => {
   };
 
   const searchProducts = (keyword) => {
+    console.log("All Categories:", allCategories);
+    console.log("Keyword:", keyword);
     const filteredProducts = Object.values(allCategories)
       .flat()
       .filter((product) =>
         product.name.toLowerCase().includes(keyword.toLowerCase())
       );
     setSearchResults(filteredProducts);
+
+    console.log("Filter results:", filteredProducts);
   };
 
   const selectedProducts = selectedCategory
     ? allCategories[selectedCategory]
     : searchResults;
 
+  const getSearchResults = (searchResults) => {
+    searchResults.map((eachResult) => {
+     return eachResult.name;
+    });
+  };
+
   return (
     <div className="BeautyContainerMain">
       <h1>BEAUTY</h1>
       {isDataLoaded ? ( // Render the components only if data is loaded
+
         <>
+
+      <div>{getSearchResults(searchResults)}</div>  
           <Search onSearch={searchProducts} />
           <Router>
             <NavBar />
             <Routes>
-          <Route
-            path="/"
-            element={
-              <AllCategories
-                allCategories={allCategories}
-                onCategoryClick={toggleCategory}
-                selectedCategory={selectedCategory}
-              />
-            }
-          />
-          <Route
-            path="/category/:categoryType"
-            element={
-              <div className="row">
-                {selectedProducts.map((product, index) => (
-                  <ListItem
-                    key={index}
-                    product={product}
-                    onClick={selectProduct}
+              <Route
+                path="/"
+                element={
+                  <AllCategories
+                    allCategories={allCategories}
+                    onCategoryClick={toggleCategory}
+                    selectedCategory={selectedCategory}
                   />
-                ))}
-              </div>
-            }
-          />
-          <Route
-            path="/product/:productId"
-            element={<ProductDetails product={selectedProduct} />}
-          />
-          <Route path="*" element={<ErrorPage />} />
-          </Routes>
+                }
+              />
+              <Route
+                path="/category/:categoryType"
+                element={
+                  <div className="row">
+                    {selectedProducts.map((product, index) => (
+                      <ListItem
+                        key={index}
+                        product={product}
+                        onClick={selectProduct}
+                      />
+                    ))}
+                  </div>
+                }
+              />
+              <Route
+                path="/product/:productId"
+                element={<ProductDetails product={selectedProduct} />}
+              />
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
           </Router>
         </>
       ) : (

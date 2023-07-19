@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./ListItem.css";
 
 const ListItem = ({ product, onClick }) => {
+  console.log("Product Name:", product.name);
   const handleClick = () => {
     onClick(product);
   };

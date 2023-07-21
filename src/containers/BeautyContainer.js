@@ -14,6 +14,8 @@ const BeautyContainer = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
+  // New state variable for search keyword
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {
     getAllBeauty();
@@ -35,6 +37,14 @@ const BeautyContainer = () => {
         setAllCategories(groupedCategories);
         console.log("All Categories:", allCategories); // Log the state after setting
         setIsDataLoaded(true); // Set the flag to indicate data loading is complete
+        // })
+        // Check if there's a search keyword and set search results accordingly
+        if (searchKeyword) {
+          const filteredProducts = products.filter((product) =>
+            product.name.toLowerCase().includes(searchKeyword.toLowerCase())
+          );
+          setSearchResults(filteredProducts);
+        }
       })
       .catch((error) => console.log(error));
   };
@@ -65,8 +75,8 @@ const BeautyContainer = () => {
     : searchResults;
 
   const getSearchResults = (searchResults) => {
-    searchResults.map((eachResult) => {
-     return eachResult.name;
+    return searchResults.map((eachResult) => {
+      return <div key={eachResult.id}>{eachResult.name}</div>;
     });
   };
 
@@ -74,11 +84,9 @@ const BeautyContainer = () => {
     <div className="BeautyContainerMain">
       <h1>BEAUTY</h1>
       {isDataLoaded ? ( // Render the components only if data is loaded
-
         <>
-
-      <div>{getSearchResults(searchResults)}</div>  
           <Search onSearch={searchProducts} />
+          <div>{getSearchResults(searchResults)}</div>
           <Router>
             <NavBar />
             <Routes>

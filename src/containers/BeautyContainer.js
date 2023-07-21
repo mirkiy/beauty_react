@@ -14,7 +14,6 @@ const BeautyContainer = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
-  // New state variable for search keyword
   const [searchKeyword, setSearchKeyword] = useState("");
 
   useEffect(() => {
@@ -33,9 +32,7 @@ const BeautyContainer = () => {
           }
           groupedCategories[productType].push(product);
         });
-        console.log("Grouped Categories:", groupedCategories);
         setAllCategories(groupedCategories);
-        console.log("All Categories:", allCategories); // Log the state after setting
         setIsDataLoaded(true); // Set the flag to indicate data loading is complete
         // })
         // Check if there's a search keyword and set search results accordingly
@@ -75,29 +72,35 @@ const BeautyContainer = () => {
     : searchResults;
 
   const getSearchResults = (searchResults) => {
-    return searchResults.map((eachResult) => {
-      return <div key={eachResult.id}>{eachResult.name}</div>;
-    });
+    return (
+      <div className="row">
+        {searchResults.map((product, index) => (
+          <ListItem key={index} product={product} onClick={selectProduct} />
+        ))}
+      </div>
+    );
   };
 
   return (
     <div className="BeautyContainerMain">
       <h1>BEAUTY</h1>
-      {isDataLoaded ? ( // Render the components only if data is loaded
+      {isDataLoaded ? (
         <>
           <Search onSearch={searchProducts} />
-          <div>{getSearchResults(searchResults)}</div>
           <Router>
             <NavBar />
             <Routes>
               <Route
                 path="/"
                 element={
-                  <AllCategories
-                    allCategories={allCategories}
-                    onCategoryClick={toggleCategory}
-                    selectedCategory={selectedCategory}
-                  />
+                  <>
+                    <AllCategories
+                      allCategories={allCategories}
+                      onCategoryClick={toggleCategory}
+                      selectedCategory={selectedCategory}
+                    />
+                    {getSearchResults(searchResults)}
+                  </>
                 }
               />
               <Route
@@ -123,7 +126,7 @@ const BeautyContainer = () => {
           </Router>
         </>
       ) : (
-        <div>Loading...</div> // Show a loading message while data is being fetched
+        <div>Loading...</div>
       )}
     </div>
   );

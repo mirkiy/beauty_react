@@ -1,11 +1,12 @@
 h1 {
   color: rgb(253, 173, 186);
+  font-weight: 700;
 }
 a {
   text-decoration: none;
 }
 
 .BeautyContainerMain {
-  background-color: #FAF3F4;
+  background-color: #faf3f4;
   padding: 20px;
 }

@@ -17,8 +17,8 @@ const Search = ({ onSearch }) => {
   return (
     <div className="Search">
       <form onSubmit={search}>
-        <input type="search" value={keyword} onChange={handleKeywordChange} />
-        <button type="submit">Search</button>
+        <input type="search" className="input" value={keyword} onChange={handleKeywordChange} placeholder="  type..."/>
+        <button type="submit" className="btn-submit">search</button>
       </form>
     </div>
   );

@@ -5,4 +5,9 @@
 .category-btn {
     border-width: 13px;
     border-color:  #eacdd1;
+    border-radius: 5px;
+}
+
+.category-btn:hover{
+background-color: rgb(168, 124, 133);
 }

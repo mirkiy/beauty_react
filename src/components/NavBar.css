@@ -1,4 +1,14 @@
-.btn-outline-info {
-    background-color: pink;
-    margin-top: 10px;
+.btn-all-categories {
+  border-width: 10px;
+  border-color: #eacdd1;
+  border-radius: 5px;
+  background-color: #eacdd1;
+  margin-top: 10px;
+  padding: 10px;
+}
+.btn-all-categories :hover {
+  color: white;
+}
+a {
+  color: black;
 }

@@ -4,7 +4,7 @@ import "./NavBar.css";
 
 const NavBar = () => {
   return (
-    <button className="btn btn-outline-info">
+    <button className="btn-all-categories">
       <Link to="/">All Categories</Link>
     </button>
   );

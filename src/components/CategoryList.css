@@ -1,13 +1,14 @@
 .categoryList {
-    padding: 10px;
+  padding: 10px;
 }
 
 .category-btn {
-    border-width: 13px;
-    border-color:  #eacdd1;
-    border-radius: 5px;
+  border-width: 10px;
+  border-color: #eacdd1;
+  border-radius: 5px;
+  background-color: #eacdd1;
 }
 
-.category-btn:hover{
-background-color: rgb(168, 124, 133);
+.category-btn:hover {
+  color: white;
 }

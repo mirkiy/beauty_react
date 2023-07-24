@@ -55,8 +55,6 @@ const BeautyContainer = () => {
   };
 
   const searchProducts = (keyword) => {
-    console.log("All Categories:", allCategories);
-    console.log("Keyword:", keyword);
     const filteredProducts = Object.values(allCategories)
       .flat()
       .filter((product) =>

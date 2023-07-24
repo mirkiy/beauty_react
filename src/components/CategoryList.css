@@ -1,14 +1,25 @@
 .categoryList {
-  padding: 10px;
-}
-
-.category-btn {
-  border-width: 10px;
-  border-color: #eacdd1;
-  border-radius: 5px;
-  background-color: #eacdd1;
-}
-
-.category-btn:hover {
-  color: white;
-}
+    padding: 10px;
+    display: flex;
+    justify-content: center; /* Center the buttons horizontally */
+    align-items: center; /* Center the buttons vertically */
+    gap: 10px; /* Add some spacing between the buttons */
+  }
+  
+  .category-btn {
+    background-color: #eacdd1;
+    width: 80px;
+    height: 80px;
+    padding: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .category-btn:hover {
+    color: white;
+  }
+  

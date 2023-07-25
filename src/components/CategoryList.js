@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./CategoryList.css";
 
 const CategoryList = ({ categoryType, onCategoryClick }) => {
   const handleClick = () => {
@@ -8,13 +7,11 @@ const CategoryList = ({ categoryType, onCategoryClick }) => {
   };
 
   return (
-    <div className="categoryList">
-      <Link to={`/category/${categoryType}`}>
-        <button className="category-btn" onClick={handleClick}>
-          {categoryType}
-        </button>
-      </Link>
-    </div>
+    <Link to={`/category/${categoryType}`} className="col-md-3">
+      <button className="category-btn" onClick={handleClick}>
+        {categoryType}
+      </button>
+    </Link>
   );
 };
 

@@ -8,9 +8,9 @@ const CategoryList = ({ categoryType, onCategoryClick }) => {
   };
 
   return (
-    <div className="category-btn">
+    <div className="col-md-2">
       <Link to={`/category/${categoryType}`}>
-        <button onClick={handleClick}>{categoryType}</button>
+        <button className="category-btn" onClick={handleClick}>{categoryType}</button>
       </Link>
     </div>
   );

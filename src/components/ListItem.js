@@ -22,7 +22,7 @@ const ListItem = ({ product, onClick }) => {
           <h6 className="card-brand">{product.brand}</h6>
         </div>
         <Link to={`/product/${product.id}`}>
-          <button className="btn btn-primary" onClick={handleClick}>
+          <button className="btn-view-details" onClick={handleClick}>
             View Details
           </button>
         </Link>

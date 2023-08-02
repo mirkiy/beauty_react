@@ -84,9 +84,8 @@ const BeautyContainer = () => {
       <h1>BEAUTY</h1>
       {isDataLoaded ? (
         <>
-          <Search onSearch={searchProducts} />
           <Router>
-            <NavBar />
+            <NavBar searchProducts={searchProducts} />
             <Routes>
               <Route
                 path="/"

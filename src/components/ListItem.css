@@ -19,5 +19,10 @@
   color: black;
 }
 .card-img-top {
-object-fit: cover
+  max-height: 200px; 
+  width: auto; 
+  object-fit: contain;
+}
+.card-title {
+  margin-top: 10px;
 }

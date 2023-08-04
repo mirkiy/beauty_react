@@ -9,7 +9,7 @@ function App() {
           <BeautyContainer />
         </main>
         <footer>
-          <small>Hello from beauty</small>
+          <small>® 2023 Mirka Zacharova</small>
         </footer>
       </div>
     </div>
